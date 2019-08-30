@@ -1,3 +1,8 @@
+import pandas as pd
+import numpy as np
+import math as math
+import matplotlib.pyplot as plt
+
 def reta_pib(dados_x, dados_y,c):    
     a = dados_y.cov(dados_x) / dados_x.var()
     b = dados_y.mean() - a*dados_x.mean()
@@ -9,6 +14,7 @@ def reta_pib(dados_x, dados_y,c):
     plt.xlabel('Anos')
     plt.ylabel('PIB Espanha')
     plt.plot((dados_x.min(), dados_x.max()), (a*dados_x.min()+b, a*dados_x.max()+b), color="red")
+    plt.legend()
     plt.tight_layout()
     
 def reta_renda(dados_x, dados_y,c):    
@@ -22,56 +28,61 @@ def reta_renda(dados_x, dados_y,c):
     plt.xlabel('Anos')
     plt.ylabel('Renda Espanha')
     plt.plot((dados_x.min(), dados_x.max()), (a*dados_x.min()+b, a*dados_x.max()+b), color="red")
+    plt.legend()
     plt.tight_layout()
 
-def reta_pib_europa_1986(dados_x, dados_y, c):    
+def reta_pib_europa_1986(dados_x, dados_y, c, legenda):    
     a = dados_y.cov(dados_x) / dados_x.var()
     b = dados_y.mean() - a*dados_x.mean()
     print('Ajuste linear entre:')
     print('Coeficiente linear:', b)
     print('Coeficiente angular:', a)
-    plt.scatter(dados_x, dados_y, c=c, alpha=0.8)
+    plt.scatter(dados_x, dados_y, c=c, alpha=0.8, label= legenda)
     plt.title('Reta do PIB da Espanha e a Europa após 1986')
     plt.xlabel('Anos')
     plt.ylabel('PIB')
     plt.plot((dados_x.min(), dados_x.max()), (a*dados_x.min()+b, a*dados_x.max()+b), color=c)
+    plt.legend()
     plt.tight_layout()
 
-def reta_renda_europa_1986(dados_x, dados_y, c):    
+def reta_renda_europa_1986(dados_x, dados_y, c,legenda):    
     a = dados_y.cov(dados_x) / dados_x.var()
     b = dados_y.mean() - a*dados_x.mean()
     print('Ajuste linear entre:')
     print('Coeficiente linear:', b)
     print('Coeficiente angular:', a)
-    plt.scatter(dados_x, dados_y, c=c, alpha=0.8)
+    plt.scatter(dados_x, dados_y, c=c, alpha=0.8,label= legenda)
     plt.title('Reta da Renda da Espanha e a Europa após 1986')
     plt.xlabel('Anos')
     plt.ylabel('PIB')
     plt.plot((dados_x.min(), dados_x.max()), (a*dados_x.min()+b, a*dados_x.max()+b), color=c)
+    plt.legend()
     plt.tight_layout()
 
-def reta_pib_mundo_1986(dados_x, dados_y, c):    
+def reta_pib_mundo_1986(dados_x, dados_y, c,legenda):    
     a = dados_y.cov(dados_x) / dados_x.var()
     b = dados_y.mean() - a*dados_x.mean()
     print('Ajuste linear entre:')
     print('Coeficiente linear:', b)
     print('Coeficiente angular:', a)
-    plt.scatter(dados_x, dados_y, c=c, alpha=0.8)
+    plt.scatter(dados_x, dados_y, c=c, alpha=0.8,label=legenda)
     plt.title('Reta do PIB da Espanha e do Mundo após 1986')
     plt.xlabel('Anos')
     plt.ylabel('PIB')
     plt.plot((dados_x.min(), dados_x.max()), (a*dados_x.min()+b, a*dados_x.max()+b), color=c)
+    plt.legend()
     plt.tight_layout()
 
-def reta_renda_mundo_1986(dados_x, dados_y, c):    
+def reta_renda_mundo_1986(dados_x, dados_y, c,legenda):    
     a = dados_y.cov(dados_x) / dados_x.var()
     b = dados_y.mean() - a*dados_x.mean()
     print('Ajuste linear entre:')
     print('Coeficiente linear:', b)
     print('Coeficiente angular:', a)
-    plt.scatter(dados_x, dados_y, c=c, alpha=0.8)
+    plt.scatter(dados_x, dados_y, c=c, alpha=0.8,label=legenda)
     plt.title('Reta da Renda da Espanha e do Mundo após 1986')
     plt.xlabel('Anos')
     plt.ylabel('PIB')
     plt.plot((dados_x.min(), dados_x.max()), (a*dados_x.min()+b, a*dados_x.max()+b), color=c)
+    plt.legend()
     plt.tight_layout()
